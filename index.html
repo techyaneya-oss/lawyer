@@ -17,11 +17,10 @@
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Підключення Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="src/output.css" rel="stylesheet">
     <!-- Підключення шрифту Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-
+    
     <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
 
@@ -29,217 +28,648 @@
 
   </head>
 
-    <header>
-      <div id = "header-mobile-group">
-        <div id="logo-group">
-          <!--<img id = "logo" src = "./images/Logo_Flat.svg" onmouseover="this.src= './images/Logo_Flat.svg'" onmouseout="this.src= './images/Logo_Flat.svg'">-->
-          <a id="logo-title" href="#">ЯНЕЯ</a>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col">
+  
+    <header class="sticky top-0 z-50 flex flex-row items-center justify-between h-15 px-[100px] bg-white/90 backdrop-blur-md border-b border-gray-100 transition-colors">
+      
+          
+          <!-- Логотип -->
+          <div class="flex-shrink-0">
+            <a href="#" class="text-2xl font-extrabold text-gray-900 flex items-center gap-2">
+              <div class="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md shadow-indigo-500/20">
+                <img src="./images/Logo_Flat.svg">
+              </div>
+              <span>ЮК <span class="text-indigo-600">ЯНЕЯ</span></span>
+            </a>
+          </div>
+
+        <div class="flex flex-row gap-20">
+          <!-- Десктопне меню навігації -->
+          <nav class="hidden md:flex items-center gap-8">
+            <a href="#about" class="text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors">
+              Про компанію
+            </a>
+            <a href="#services" class="text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors">
+              Послуги
+            </a>
+            <a href="#team" class="text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors">
+              Команда
+            </a>
+            <a href="#faq" class="text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors">
+              FAQ
+            </a>
+            <a href="#contacts" class="text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors">
+              Контакти
+            </a>
+          </nav>
+
+          <!-- Права частина: Телефон та кнопка заклику -->
+          <div class="hidden lg:flex items-center gap-6">
+            <a href="tel:+380988190423" class="text-sm font-bold text-gray-900 hover:text-indigo-600 transition-colors">
+              +38 (098) 819-04-23 
+            </a>
+            <a href="contacts.html" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-xl hover:text-white bg-indigo-600 hover:bg-indigo-700 transition-colors text-white shadow-sm">
+              Записатись на консультацію
+            </a>
+          </div>
         </div>
 
-        <span id="nav-toggle" class="material-symbols-outlined">
-          menu
-        </span>
-        <span id="close-mobile-naw" class="material-symbols-outlined">
-          Close
-        </span>
-      </div>
+          <!-- Мобільне меню (Button Toggle через HTML/CSS без JS) -->
+          <div class="flex md:hidden items-center">
+            <details class="group relative [&_summary::-webkit-details-marker]:hidden">
+              <summary class="p-2 rounded-xl text-gray-700 hover:bg-gray-100 cursor-pointer focus:outline-none list-none">
+                <!-- Іконка гамбургера -->
+                <svg class="w-6 h-6 group-open:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <!-- Іконка хрестика при відкритті -->
+                <svg class="w-6 h-6 hidden group-open:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </summary>
+
+              <!-- Выпадаюче мобільне меню -->
+              <div class="absolute right-0 top-full mt-3 w-64 p-4 bg-white rounded-2xl shadow-xl border border-gray-100 flex flex-col gap-3">
+                <a href="#about" class="px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
+                  Про компанію
+                </a>
+                <a href="#services" class="px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
+                  Послуги
+                </a>
+                <a href="#team" class="px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
+                  Команда
+                </a>
+                <a href="#faq" class="px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
+                  FAQ
+                </a>
+                <a href="contacts.html" class="px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
+                  Контакти
+                </a>
+                <div class="pt-3 border-t border-gray-100 flex flex-col gap-3">
+                  <a href="tel:+380988190423" class="px-3 text-sm font-bold text-gray-900">
+                    +38 (098) 819-04-23
+                  </a>
+                  <a href="contacts.html" class="w-full text-center py-2.5 text-sm font-medium rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 transition-colors">
+                    Записатись на консультацію
+                  </a>
+                </div>
+              </div>
+            </details>
+          </div>
       
-
-
-      <nav id="nav-container">
-        <ul id="nav-menu">
-          <li class="nav-item"><a href="#services">Послуги</a></li>
-          <li class="nav-item"><a href="#aboutus">Про компанію</a></li>
-          <li class="nav-item"><a href="#contacts">Контакти</a></li>
-        </ul>
-
-      </nav>
     </header>
+
     
     <main>
 
-      <section id="first-page">
-        <div class="cover">
-          <div id ="first-page-group">
-            <h1 id="first-page-caption">
-              <span class="company-name">ЯНЕЯ</span> - Ваша надійна юридична підтримка
-            </h1>
-            <div id="first-page-buttons">
-              <div class="products-light-button"><a href="#contacts">Отримати консультацію</a></div>
+
+
+      <section class="relative py-20 lg:py-28 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Лівий блок: Заголовок, опис та заклик до дії -->
+            <div class="lg:col-span-7 text-left">
+              
+              <!-- Невеликий бейдж над заголовком -->
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 mb-6">
+                <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
+                <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">Юридична компанія</span>
+              </div>
+
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                Надійний захист та <span class="text-indigo-600">правова підтримка</span> вашого бізнесу
+              </h1>
+              
+              <p class="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl">
+                Допомагаємо вирішувати складні юридичні питання, захищаємо ваші інтереси в суді та забезпечуємо супровід угодам будь-якої складності.
+              </p>
+
+              <!-- Кнопки дій -->
+              <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                <a href="contacts.html" class="inline-flex justify-center items-center px-8 py-4 text-base font-medium rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-500/25">
+                  Записатися на консультацію
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+                <a href="#services" class="inline-flex justify-center items-center px-8 py-4 text-base font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-100 transition-colors border border-gray-200 shadow-sm">
+                  Дізнатися про послуги
+                </a>
+              </div>
+
+              <!-- Короткі переваги під кнопками -->
+              <div class="mt-10 pt-8 border-t border-gray-200 grid grid-cols-3 gap-4">
+                <div>
+                  <p class="text-2xl font-bold text-gray-900">15+ років</p>
+                  <p class="text-xs text-gray-500 mt-1">досвіду на ринку</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-bold text-gray-900">98%</p>
+                  <p class="text-xs text-gray-500 mt-1">успішних справ</p>
+                </div>
+                <div>
+                  <p class="text-2xl font-bold text-gray-900">24/7</p>
+                  <p class="text-xs text-gray-500 mt-1">підтримка клієнтів</p>
+                </div>
+              </div>
+
             </div>
+
+            <!-- Правий блок: Зображення та плаваюча картка -->
+            <div class="lg:col-span-5 relative">
+              <div class="relative mx-auto max-w-md lg:max-w-none">
+                
+                <!-- Головне фото -->
+                <div class="relative bg-white rounded-3xl p-3 shadow-xl border border-gray-100">
+                  <img 
+                    class="w-full h-[420px] sm:h-[480px] object-cover rounded-2xl" 
+                    src="images/about_company/sign.jpeg" 
+                    alt="Юридична консультація" 
+                  />
+                </div>
+
+                <!-- Плаваюча картка зі статусом -->
+                <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-4 hidden sm:flex">
+                  <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-gray-900">Первинна розмова</p>
+                    <p class="text-xs text-gray-500">Безкоштовно по телефону</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
-            
-          <section id="law-advantages">
-            <h2 class="section-header">Чому нас обирають?</h2>
-            <div id="law-advantages-group">
-              <div class="law-advantages-subgroup">
-                <span class="material-symbols-outlined picture-adventages">
-                  verified
-                </span>
-                <div class="law-advantages-text">Багаторічний досвід</div>
-              </div>
-              
-              <div class="law-advantages-subgroup">
-                <span class="material-symbols-outlined picture-adventages">
-                  person_search
-                </span>
-                <div class="law-advantages-text">Індивідуальний підхід</div>
-              </div>
-    
-              <div class="law-advantages-subgroup">
-                <span class="material-symbols-outlined picture-adventages">
-                  cards_star
-                </span>
-                <div class="law-advantages-text">Успішні кейси</div>
-              </div>
-              
-            </div>
-            
-          </section>
         </div>
       </section>
-      
-      <!-- Services Section -->
-    <section id="services" class="py-16 mx-4 md:mx-auto max-w-6xl mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-gray-800 section-title">Наші Послуги</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200">
-                    <div class="text-blue-600 mb-4">
-                      <span class="material-symbols-outlined services-icons w-12 h-12 mx-auto">
-                        balance
-                      </span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Корпоративне Право</h3>
-                    <p class="text-gray-600">Повний спектр послуг для бізнесу: реєстрація, реорганізація, договори, супровід угод.</p>
-                </div>
-                <!-- Service Card 2 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200">
-                    <div class="text-blue-600 mb-4">
-                        <span class="material-symbols-outlined services-icons w-12 h-12 mx-auto">
-                          gavel
-                        </span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Судові Спори</h3>
-                    <p class="text-gray-600">Представництво інтересів у судах усіх інстанцій: цивільні, адміністративні, господарські справи.</p>
-                </div>
-                <!-- Service Card 3 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200">
-                    <div class="text-blue-600 mb-4">
-                        <span class="material-symbols-outlined services-icons w-12 h-12 mx-auto">
-                          source_environment
-                        </span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Нерухомість та Земля</h3>
-                    <p class="text-gray-600">Юридичний супровід операцій з нерухомістю, вирішення земельних спорів, приватизація.</p>
-                </div>
-                <!-- Service Card 4 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200">
-                    <div class="text-blue-600 mb-4">
-                        <span class="material-symbols-outlined services-icons w-12 h-12 mx-auto">
-                          diversity_2
-                        </span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Сімейне Право</h3>
-                    <p class="text-gray-600">Розлучення, поділ майна, аліменти, усиновлення, опіка та інші сімейні питання.</p>
-                </div>
-                <!-- Service Card 5 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200">
-                    <div class="text-blue-600 mb-4">
-                        <span class="material-symbols-outlined services-icons w-12 h-12 mx-auto">
-                          assured_workload
-                        </span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Захист Прав Споживачів</h3>
-                    <p class="text-gray-600">Допомога у вирішенні спорів зі споживачами, повернення коштів, обмін товарів.</p>
-                </div>
-                <!-- Service Card 6 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border border-gray-200">
-                    <div class="text-blue-600 mb-4">
-                        <span class="material-symbols-outlined services-icons w-12 h-12 mx-auto">
-                          receipt
-                        </span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Податкове Право</h3>
-                    <p class="text-gray-600">Консультації з податкового законодавства, оптимізація оподаткування, вирішення податкових спорів.</p>
-                </div>
-            </div>
+
+
+
+    <section id="services" class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Заголовок секції -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Наші послуги
+          </h2>
+          <p class="mt-4 text-lg text-gray-600">
+            Професійна юридична допомога для бізнесу та приватних осіб у найважливіших сферах права.
+          </p>
         </div>
+
+        <!-- Сітка з послугами -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Послуга 1: Корпоративне Право -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+            <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l9-4 9 4v2H3V6zm0 4h18v11a1 1 0 01-1 1H4a1 1 0 01-1-1V10zm5 3v5m4-5v5m4-5v5" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Корпоративне Право
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Повний спектр послуг для бізнесу: реєстрація, реорганізація, договори, супровід угод.
+            </p>
+          </div>
+
+          <!-- Послуга 2: Судові Спори -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+            <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M12 3v18M5 8l7-5 7 5M5 8v3a4 4 0 004 4h0a4 4 0 004-4V8M15 8v3a4 4 0 004 4h0a4 4 0 004-4V8" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Судові Спори
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Представництво інтересів у судах усіх інстанцій: цивільні, адміністративні, господарські справи.
+            </p>
+          </div>
+
+          <!-- Послуга 3: Нерухомість та Земля -->
+          <div class="bg-white  rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+            <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0V7m0 4h4m-4 0H7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Нерухомість та Земля
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Юридичний супровід операцій з нерухомістю, вирішення земельних спорів, приватизація.
+            </p>
+          </div>
+
+          <!-- Послуга 4: Сімейне Право -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+            <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Сімейне Право
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Розлучення, поділ майна, аліменти, усиновлення, опіка та інші сімейні питання.
+            </p>
+          </div>
+
+          <!-- Послуга 5: Захист Прав Споживачів -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+            <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Захист Прав Споживачів
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Допомога у вирішенні спорів зі споживачами, повернення коштів, обмін товарів.
+            </p>
+          </div>
+
+          <!-- Послуга 6: Податкове Право -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
+            <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Податкове Право
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Консультації з податкового законодавства, оптимізація оподаткування, вирішення податкових спорів.
+            </p>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-      <section id="aboutus">
-        <h2  class="section-header">Про компанію</h2>
-        <p id="aboutus-text">
-          Наша юридична компанія <span class="company-name">"ЯНЕЯ"</span> надає повний спектр юридичних послуг. Ми пишаємося нашою репутацією надійного партнера, який завжди стоїть на захисті інтересів своїх клієнтів. 
-          Наша команда складається з досвідчених та висококваліфікованих юристів, які постійно вдосконалюють свої знання та навички. Ми віримо в індивідуальний підхід до кожного клієнта, 
-          глибокий аналіз ситуації та розробку ефективних стратегій для досягнення найкращих результатів. Ваша довіра — наш пріоритет.
-        </p>
+
+
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Заголовок секції -->
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900  sm:text-4xl">
+              Про компанію
+            </h2>
+            <p class="mt-4 text-lg text-gray-600">
+              Ми створюємо надійні юридичні та бізнес-рішення, допомагаючи клієнтам досягати успіху та захищати свої інтереси.
+            </p>
+          </div>
+
+          <!-- Основний контент: Головна картка з описом та ключові цифри -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            
+            <!-- Головний текстовий блок -->
+            <div class="lg:col-span-2 bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-center">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                Наш досвід та цінності
+              </h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Наша юридична компанія <span class="text-indigo-600 font-bold">"ЯНЕЯ"</span> надає повний спектр юридичних послуг. Ми пишаємося нашою репутацією надійного партнера, який завжди стоїть на захисті інтересів своїх клієнтів.
+              </p>
+              <p class="text-gray-600 leading-relaxed">
+                Наша команда складається з досвідчених та висококваліфікованих юристів, які постійно вдосконалюють свої знання та навички. Ми віримо в індивідуальний підхід до кожного клієнта, 
+                глибокий аналіз ситуації та розробку ефективних стратегій для досягнення найкращих результатів. Ваша довіра — наш пріоритет.
+              </p>
+            </div>
+
+            <!-- Блок зі статистикою / досягненнями -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between space-y-6">
+              
+              <div class="border-b border-gray-100 pb-4">
+                <span class="text-4xl font-extrabold text-indigo-600">10+</span>
+                <p class="text-sm font-medium text-gray-900 mt-1">Років практичного досвіду</p>
+              </div>
+
+              <div class="border-b border-gray-100 pb-4">
+                <span class="text-4xl font-extrabold text-indigo-600">500+</span>
+                <p class="text-sm font-medium text-gray-900 mt-1">Успішно вирішених справ</p>
+              </div>
+
+              <div>
+                <span class="text-4xl font-extrabold text-indigo-600">98%</span>
+                <p class="text-sm font-medium text-gray-900 mt-1">Задоволених постійних клієнтів</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Переваги компанії (3 картки в ряд) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Перевага 1 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Надійність та безпека</h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Гарантуємо повну конфіденційність та захист ваших даних на кожному етапі співпраці.
+              </p>
+            </div>
+
+            <!-- Перевага 2 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Швидкість вирішення</h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Оперативно реагуємо на запити та знаходимо найефективніші шляхи досягнення результату.
+              </p>
+            </div>
+
+            <!-- Перевага 3 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">Індивідуальний підхід</h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Кожна ситуація унікальна, тому ми розробляємо персональну стратегію під ваші потреби.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
       </section>
 
-      <section id="questions">
-        <h2 class="section-header">Часті питання</h2>
-        <div class="question-group">
-          <div class="question-sub-group">
-            <div class="question-text">Як записатися на консультацію?</div>
-            <span class="material-symbols-outlined answer-show">
-              open_run
-            </span>
-            <span class="material-symbols-outlined answer-hide">
-              close
-            </span>
+
+      <section id="team" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Заголовок секції -->
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              Наша команда
+            </h2>
+            <p class="mt-4 text-lg text-gray-600">
+              Ваші інтереси - наш пріоритет.
+            </p>
           </div>
-          <div class="answer-text">Щоб записатися на консультацію, перейдіть у блок <a href="#contacts"><span class="company-name">Контакти</span></a> та оберіть будь-який зручний варіант для зв'язку з нами.</div>
-        </div>
-        <div class="question-group">
-          <div class="question-sub-group">
-            <div class="question-text">Які документи потрібно мати для першої консультації?</div>
-            <span class="material-symbols-outlined answer-show">
-              open_run
-            </span> 
-            <span class="material-symbols-outlined answer-hide">
-              close
-            </span>
+
+          <!-- Сітка з картками команд -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            
+            <!-- Учасник 1 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+              <img 
+                class="w-80 h-80 rounded-full object-cover mb-4 border-4 border-indigo-50 shadow-inner" 
+                src="./images/about_company/photo_miroshnik.jpg" 
+                alt="Мирошник Євгеній"
+              />
+              <h3 class="text-xl font-bold text-gray-900">
+                Мирошник Євгеній
+              </h3>
+              <span class="text-sm font-medium text-indigo-600 mb-3">
+                Засновник ЮК «ЯНЕЯ», адвокат
+              </span>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                15 років юридичної практики. 
+                Спеціалізація: міжнародне право, корпоративні спори та юридичний супровід бізнесу. 
+                Переваги:
+                Чесна оцінка перспектив справи, швидка комунікація та підтримка, нестандартні рішення для результату.
+              </p>
+            </div>
+
+            <!-- Учасник 2 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
+              <img 
+                class="w-80 h-80 rounded-full object-cover mb-4 border-4 border-indigo-50 shadow-inner" 
+                src="./images/about_company/photo_miahka.jpeg" 
+                alt="Мягка Лілія"
+              />
+              <h3 class="text-xl font-bold text-gray-900">
+                Мягка Лілія
+              </h3>
+              <span class="text-sm font-medium text-indigo-600 mb-3">
+                Партнер ЮК «ЯНЕЯ», адвокат, медіатор
+              </span>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                22 роки юридичної практики. 
+                Спеціалізація: сімейне, цивільне, спадкове, земельне право, питання по нерухомості. 
+                «Моя робота -це не просто юридичний супровід, а чітка стратегія, конфіденційність та результат»
+              </p>
+            </div>
+
           </div>
-          <div class="answer-text">Щоб консультація була максимально ефективною, підготуйте, будь ласка, всі документи, що стосуються вашої справи (договори, листування, судові рішення тощо). 
-            Якщо ви не впевнені, які саме документи потрібні, наш менеджер допоможе вам.</div>
         </div>
-        <div class="question-group">
-          <div class="question-sub-group">
-            <div class="question-text">Чи надаєте ви безкоштовні консультації?</div>
-            <span class="material-symbols-outlined answer-show">
-              open_run
-            </span>
-            <span class="material-symbols-outlined answer-hide">
-              close
-            </span>
-          </div>
-          <div class="answer-text">Перша коротка консультація по телефону або онлайн щодо можливості вирішення вашої проблеми надається безкоштовно. Детальна юридична консультація з аналізом документів є платною. 
-            Вартість ви можете дізнатись у менеджера.</div>
-        </div>
-        
-       
       </section>
+
+      
+      <section id="faq" class="flex flex-row w-full py-16 bg-gray-50">
+        <div class="flex flex-col w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Заголовок секції -->
+          <div class="text-center max-w-7xl mx-auto mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              Часті питання
+            </h2>
+            <p class="mt-4 text-lg text-gray-600">
+              Відповіді на найпопулярніші запитання про наші послуги та порядок роботи.
+            </p>
+          </div>
+
+          <!-- Список питань (акордеон / картки) -->
+          <div class="flex-col w-full space-y-4">
+            
+            <!-- Питання 1 -->
+            <details class="group w-full bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 [&_summary::-webkit-details-marker]:hidden">
+              <summary class="flex w-full items-center justify-between cursor-pointer font-bold text-lg text-gray-900">
+                <span>Як записатися на консультацію?</span>
+                <span class="ml-4 flex-shrink-0 transition-transform duration-300 group-open:-rotate-180 text-indigo-600">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                Щоб записатися на консультацію, перейдіть у блок <strong><a href="#contacts">Контакти</a></strong> та оберіть будь-який зручний варіант для зв'язку з нами.
+              </p>
+            </details>
+
+            <!-- Питання 2 -->
+            <details class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 [&_summary::-webkit-details-marker]:hidden">
+              <summary class="flex items-center justify-between cursor-pointer font-bold text-lg text-gray-900">
+                <span>Які документи потрібно мати для першої консультації?</span>
+                <span class="ml-4 flex-shrink-0 transition-transform duration-300 group-open:-rotate-180 text-indigo-600">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                Щоб консультація була максимально ефективною, підготуйте, будь ласка, всі документи, що стосуються вашої справи (договори, листування, судові рішення тощо). Якщо ви не впевнені, які саме документи потрібні, наш менеджер допоможе вам.
+              </p>
+            </details>
+
+            <!-- Питання 3 -->
+            <details class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 [&_summary::-webkit-details-marker]:hidden">
+              <summary class="flex items-center justify-between cursor-pointer font-bold text-lg text-gray-900">
+                <span>Чи надаєте ви безкоштовні консультації?</span>
+                <span class="ml-4 flex-shrink-0 transition-transform duration-300 group-open:-rotate-180 text-indigo-600">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                Перша коротка консультація по телефону або онлайн щодо можливості вирішення вашої проблеми надається безкоштовно. Детальна юридична консультація з аналізом документів є платною. Вартість ви можете дізнатись у менеджера.
+              </p>
+            </details>
+
+          </div>
+        </div>
+      </section>
+
+
 
       
     </main>
 
-    <footer>
-      <div id="footer-container">
-        <div id="footer-container2">
-          <h2  class="section-header">Контакти</h2>
-            <ul id="contacts">
-                <li  class="contacts-item-container">
-                  <a href="tel:+380988190423" class="contacts-item">+380988190423</a> <b>(</b><a href="viber://chat?number=%2B380988190423"  target="_blank" class="contacts-item">viber</a><b>,</b> 
-                  <a href="https://wa.me/380988190423" target="_blank" class="contacts-item">watsapp</a><b>,</b> 
-                  <a href="https://t.me/jmirosh" target="_blank" class="contacts-item">telegram</a><b>)</b></li>
-                <li class="contacts-item-container"><a href="mailto:lcyaneya@gmail.com" class="contacts-item">lcyaneya@gmail.com</a></li>
-                <li class="contacts-item-container" ><a href="https://maps.app.goo.gl/bS5V4EePwp833f2G7" target="_blank" class="contacts-item">м. Дніпро, вул. Сонячна Набережна, 2 (другий) поверх Башти А6-7</a></li>
-            </ul>
-          <p>Товариство з обмеженою відповідальністю «ЮРИДИЧНА КОМПАНІЯ «ЯНЕЯ»»</p>  
-          <p>Робочі дні: з Пн по Сб з 9:00-18:00</p>  
+
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          
+          <!-- Колонка 1: Про компанію та Логотип -->
+          <div class="space-y-4">
+            <a href="#" class="inline-block text-2xl font-extrabold text-gray-900">
+              <span class="text-gray-900">ЮК <span class="text-indigo-600">ЯНЕЯ</span></span>
+            </a>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Професійна юридична допомога та захист ваших інтересів. Надійний партнер для бізнесу та приватних осіб.
+            </p>
+          </div>
+
+          <!-- Колонка 2: Контакти та Пошта -->
+          <div id="contacts" class="space-y-3">
+            <h3 class="text-base font-bold text-gray-900 uppercase tracking-wider">
+              Зв'яжіться з нами
+            </h3>
+            
+            <!-- Телефон -->
+            <a href="tel:+380988190423" class="flex items-center gap-3 text-sm text-gray-600 hover:text-indigo-600 transition-colors">
+              <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <span>+38 (098) 819-04-23</span>
+            </a>
+
+            <!-- Пошта -->
+            <a href="mailto:lcyaneya@gmail.com" class="flex items-center gap-3 text-sm text-gray-600 hover:text-indigo-600 transition-colors">
+              <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <span>lcyaneya@gmail.com</span>
+            </a>
+          </div>
+
+          <!-- Колонка 3: Графік роботи -->
+          <div class="space-y-3">
+            <h3 class="text-base font-bold text-gray-900 uppercase tracking-wider">
+              Графік роботи
+            </h3>
+            
+            <div class="flex items-start gap-3 text-sm text-gray-600">
+              <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div class="space-y-1">
+                <p><strong class="font-semibold text-gray-900">Пн — Пт:</strong> 09:00 — 18:00</p>
+                <p><strong class="font-semibold text-gray-900">Сб:</strong> 10:00 — 15:00</p>
+                <p><strong class="font-semibold text-gray-900">Нд:</strong> Вихідний</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Колонка 4: Месенджери -->
+          <div class="space-y-3">
+            <h3 class="text-base font-bold text-gray-900 uppercase tracking-wider">
+              Месенджери
+            </h3>
+            <p class="text-sm text-gray-600 mb-3">
+              Пишіть у зручний для вас месенджер:
+            </p>
+            
+            <div class="flex flex-wrap gap-2">
+              <!-- Telegram -->
+              <a href="https://t.me/jmirosh" target="_blank" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 text-sm font-medium text-gray-700 hover:bg-indigo-50
+               hover:text-indigo-600 transition-colors border border-gray-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.02 9.51c-.15.68-.55.84-1.12.52l-3.1-2.29-1.5 1.44c-.16.16-.3.3-.61.3l.22-3.14 5.72-5.17c.25-.22-.05-.34-.39-.12l-7.07 4.45-3.05-.95c-.66-.21-.68-.66.14-.98l11.91-4.59c.55-.2 1.04.14.87.82z"/>
+                </svg>
+                Telegram
+              </a>
+
+              <!-- Viber -->
+              <a href="viber://chat?number=%2B380988190423" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 text-sm font-medium text-gray-700
+               hover:bg-indigo-50 hover:text-indigo-600 transition-colors border border-gray-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M19.38 4.62C17.42 2.66 14.8 1.58 12 1.58S6.58 2.66 4.62 4.62C2.66 6.58 1.58 9.2 1.58 12s1.08 5.42 3.04 7.38l.02.02v2.85c0 .41.33.75.75.75h2.85l.02.02c1.96 1.96 4.58 3.04 7.38 3.04s5.42-1.08 7.38-3.04c1.96-1.96 3.04-4.58 3.04-7.38s-1.08-5.42-3.04-7.38zM12 21.42c-2.31 0-4.48-.83-6.19-2.34l-.4-.35-1.91.19.19-1.91-.35-.4C1.83 14.89 1 12.72 1 10.41c0-5.19 4.22-9.41 9.41-9.41s9.41 4.22 9.41 9.41-4.22 9.42-9.41 9.42z"/>
+                </svg>
+                Viber
+              </a>
+
+              <!-- WhatsApp -->
+              <a href="https://wa.me/380988190423" target="_blank" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 text-sm font-medium text-gray-700 hover:bg-indigo-50
+               hover:text-indigo-600 transition-colors border border-gray">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                </svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
         </div>
+
+        <!-- Нижня частина підвалу (Copyright) -->
+        <div class="pt-8 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+          <p>© 2026 Всі права захищено.</p>
+          <div class="flex gap-6">
+            <!--<a href="#" class="hover:text-indigo-600 transition-colors">Політика конфіденційності</a>
+            <a href="#" class="hover:text-indigo-600 transition-colors">Умови використання</a>-->
+          </div>
+        </div>
+
       </div>
     </footer>
+
+
   </body>
 </html>
